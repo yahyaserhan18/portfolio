@@ -1,11 +1,15 @@
 using Microsoft.EntityFrameworkCore;
+using Infrastructure.UnitOfWork;
 using Infrastructure.Data;
 using System;
+using Core.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 
+// add IUnitOfWork and IGenericRepository services  
+builder.Services.AddScoped(typeof(IUnitOfWork<>),typeof(UnitOfWork<>));
 
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<AppDbContext>(options =>

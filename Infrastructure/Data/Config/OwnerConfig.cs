@@ -25,7 +25,7 @@ namespace Infrastructure.Data.Config
                     FullName = "Yahya Elserhan",
                     Profil = "Software Engineer - Information System Engineer",
                     //Avatar = Guid.NewGuid().ToString() + "_" + "avatar.jpg",
-                    Avatar = "afbee271-d03c-4416-bfc7-9c42e6c2cf4c" + "_" + "avatar.jpg"
+                    Avatar = "afbee271-d03c-4416-bfc7-9c42e6c2cf4c" + "_" + "avatar.jpg"//afbee271-d03c-4416-bfc7-9c42e6c2cf4c_avatar.jpg
                 }
             );
         }

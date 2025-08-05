@@ -19,9 +19,9 @@ namespace Infrastructure.Repository
             _context = context ?? throw new ArgumentNullException(nameof(context));
             _dbSet = _context.Set<T>() ?? throw new ArgumentNullException(nameof(_dbSet));
         }
-        public async Task Delete(object id)
+        public async Task DeleteAsync(object id)
         {
-            T? entity =await GetById(id);
+            T? entity =await GetByIdAsync(id);
             if(entity == null)
             {
                 throw new KeyNotFoundException($"Entity with id {id} not found.");
@@ -29,12 +29,17 @@ namespace Infrastructure.Repository
             _dbSet.Remove(entity);
         }
 
-        public async Task<IEnumerable<T>> GetAll()
+        public async Task<IEnumerable<T>> GetAllAsync()
         {
             return await _dbSet.ToListAsync();
         }
 
-        public async Task<T?> GetById(object id)
+        public async Task<T?> FirstOrDefaultAsync()
+        {
+            return await _dbSet.FirstOrDefaultAsync();
+        }
+
+        public async Task<T?> GetByIdAsync(object id)
         {
             return await _dbSet.FindAsync(id);
         }

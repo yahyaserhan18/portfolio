@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.UnitOfWork
 {
-    internal class UnitOfWork<T> : IUnitOfWork<T> where T : class
+    public class UnitOfWork<T> : IUnitOfWork<T> where T : class
     {
         private readonly AppDbContext _Context;
         private IGenericRepository<T>? _entity;

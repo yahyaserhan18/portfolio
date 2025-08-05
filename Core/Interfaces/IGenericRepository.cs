@@ -8,11 +8,12 @@ namespace Core.Interfaces
 {
     public interface IGenericRepository<T> where T : class
     {
-        Task<IEnumerable<T>> GetAll();
-        Task<T?> GetById(object id);
+        Task<IEnumerable<T>> GetAllAsync();
+        Task<T?> FirstOrDefaultAsync();
+        Task<T?> GetByIdAsync(object id);
 
         void Insert(T entity);
         void Update(T entity);
-        Task Delete(object id);
+        Task DeleteAsync(object id);
     }
 }
